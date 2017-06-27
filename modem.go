@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"time"
+	"strings"
 
 	"github.com/tarm/serial"
 )
@@ -33,8 +34,10 @@ func Modem_WriteLine(line string) {
 }
 
 func Modem_GetReply(command string) string {
+	Modem_Port.Flush()
 	Modem_WriteLine(command)
-	return Modem_ReadUntil('\n')
+	Modem_ReadUntil('\n') // skip first blank line
+	return strings.TrimSpace(Modem_ReadUntil('\n'))
 }
 
 func Modem_Init() {
@@ -64,5 +67,6 @@ func Modem_Init() {
 
 	log.Println(Modem_GetReply("AT"))
 	log.Println(Modem_GetReply("AT+COPS?"))
+
 	log.Printf("Connected to SIM800 on port %s", config.Server.SerialPort)
 }
