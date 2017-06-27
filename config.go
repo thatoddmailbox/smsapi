@@ -16,13 +16,15 @@ type Config struct {
 type ServerConfig struct {
 	Port int
 	Token string
+	SerialPort string
 }
 
 func Config_CreateNew() {
 	newConfig := `# smsapi configuration
 [server]
 Port = 4725
-Token = "hello"`
+Token = "hello"
+SerialPort = "/dev/ttyUSB0"`
 	err := ioutil.WriteFile("config.toml", []byte(newConfig), 0644)
 	if err != nil {
 		panic(err)

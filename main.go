@@ -10,6 +10,7 @@ func main() {
 	log.Println("smsapi")
 
 	Config_Init()
+	Modem_Init()
 	Routes_Init()
 
 	log.Printf("Listening on port %d", config.Server.Port)
