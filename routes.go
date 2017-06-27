@@ -17,5 +17,8 @@ func Routes_Init() {
 	router.GET("/modem/carrier", APIRoute_Modem_Carrier)
 	router.GET("/modem/ccid", APIRoute_Modem_CCID)
 
+	// sms directory
+	router.GET("/sms/send", APIRoute_SMS_Send)
+
 	http.Handle("/", router)
 }

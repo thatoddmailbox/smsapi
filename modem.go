@@ -66,13 +66,18 @@ func Modem_Init() {
 
 	time.Sleep(10*time.Millisecond)
 
+	log.Println(1)
 	Modem_Reader.ReadBytes('\n')
+	log.Println(2)
 	Modem_Reader.ReadBytes('\n')
+	log.Println(3)
 	Modem_Reader.ReadBytes('\n')
+	log.Println(4)
 	Modem_Reader.ReadBytes('\n')
-	Modem_Reader.ReadBytes('\n')
+	log.Println(5)
 	Modem_Discard()
 
+	Modem_GetReply("AT")
 	if Modem_GetReply("AT") != "OK" {
 		log.Fatal("Didn't get an OK to AT!")
 	}
