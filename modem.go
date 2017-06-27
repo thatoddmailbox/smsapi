@@ -75,6 +75,8 @@ func Modem_Init() {
 	Modem_Reader.ReadBytes('\n')
 	Modem_Reader.ReadBytes('\n')
 	Modem_Reader.ReadBytes('\n')
+	Modem_Reader.ReadBytes('\n')
+	Modem_Reader.ReadBytes('\n')
 	Modem_Discard()
 
 	if Modem_GetReply("AT") != "OK" {
