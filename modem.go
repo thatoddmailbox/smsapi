@@ -42,7 +42,7 @@ func Modem_GetReply(command string) string {
 func Modem_Init() {
 	var err error
 
-	c := &serial.Config{Name: config.Server.SerialPort, Baud: 115200, ReadTimeout: time.Second * 2}
+	c := &serial.Config{Name: config.Server.SerialPort, Baud: 115200, ReadTimeout: time.Second * 5}
 	Modem_Port, err = serial.OpenPort(c)
 	if err != nil {
 		log.Println("Failed to open given port for modem:")
